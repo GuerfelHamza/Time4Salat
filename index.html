@@ -1,93 +1,104 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Time4Salat</title>
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet">
-</head>
-<body>
-  <!-- Timer Section -->
-  <div id="timer-container">
-    <div id="title">Time4Salat</div>
-    <div id="timer" class="timer">
-      <div id="hours">00</div>
-      <div>:</div>
-      <div id="minutes">00</div>
-      <div>:</div>
-      <div id="seconds">00</div>
-    </div>
-  </div>
-
-  <!-- Cards Section -->
-  <div id="cards-container">
-    <div class="card">
-      <h3 class="title">AL-Sobh</h3>
-      <div class="bar">
-        <div class="emptybar"></div>
-        <div class="filledbar"></div>
-      </div>
-      <div class="circle">
-        <svg width="120" height="120">
-          <circle class="stroke" cx="60" cy="60" r="50"/>
-        </svg>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Time4Salat</title>
+    <!-- Call for some global library -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600"
+      rel="stylesheet"
+    />
+    <link href="css/mobiscroll.javascript.min.css" rel="stylesheet" />
+    <script src="js/mobiscroll.javascript.min.js"></script>
+    <!-- Call for my local js and css files -->
+    <link rel="stylesheet" href="style.css" />
+    <script src="main.js" defer></script>
+  </head>
+  <body>
+    <!-- Timer Section -->
+    <div id="timer-container">
+      <div id="title">Time4Salat</div>
+      <div id="timer" class="timer">
+        <div id="hours">00</div>
+        <div>:</div>
+        <div id="minutes">00</div>
+        <div>:</div>
+        <div id="seconds">00</div>
       </div>
     </div>
-
-    <div class="card">
-      <h3 class="title">AL-Dhuhr</h3>
-      <div class="bar">
-        <div class="emptybar"></div>
-        <div class="filledbar"></div>
+    <label>
+      Countries
+      <select id="country"></select>
+    </label>
+    <!-- the end of Timer section -->
+    <!-- Cards Section -->
+    <div id="cards-container">
+      <div class="card">
+        <h3 class="title">AL-Sobh</h3>
+        <div class="bar">
+          <div class="emptybar"></div>
+          <div class="filledbar"></div>
+        </div>
+        <div class="circle">
+          <svg width="120" height="120">
+            <circle class="stroke" cx="60" cy="60" r="50" />
+          </svg>
+        </div>
       </div>
-      <div class="circle">
-        <svg width="120" height="120">
-          <circle class="stroke" cx="60" cy="60" r="50"/>
-        </svg>
+
+      <div class="card">
+        <h3 class="title">AL-Dhuhr</h3>
+        <div class="bar">
+          <div class="emptybar"></div>
+          <div class="filledbar"></div>
+        </div>
+        <div class="circle">
+          <svg width="120" height="120">
+            <circle class="stroke" cx="60" cy="60" r="50" />
+          </svg>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3 class="title">AL-Asr</h3>
+        <div class="bar">
+          <div class="emptybar"></div>
+          <div class="filledbar"></div>
+        </div>
+        <div class="circle">
+          <svg width="120" height="120">
+            <circle class="stroke" cx="60" cy="60" r="50" />
+          </svg>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3 class="title">AL-Maghrib</h3>
+        <div class="bar">
+          <div class="emptybar"></div>
+          <div class="filledbar"></div>
+        </div>
+        <div class="circle">
+          <svg width="120" height="120">
+            <circle class="stroke" cx="60" cy="60" r="50" />
+          </svg>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3 class="title">AL-Isha</h3>
+        <div class="bar">
+          <div class="emptybar"></div>
+          <div class="filledbar"></div>
+        </div>
+        <div class="circle">
+          <svg width="120" height="120">
+            <circle class="stroke" cx="60" cy="60" r="50" />
+          </svg>
+        </div>
       </div>
     </div>
-
-    <div class="card">
-      <h3 class="title">AL-Asr</h3>
-      <div class="bar">
-        <div class="emptybar"></div>
-        <div class="filledbar"></div>
-      </div>
-      <div class="circle">
-        <svg width="120" height="120">
-          <circle class="stroke" cx="60" cy="60" r="50"/>
-        </svg>
-      </div>
-    </div>
-
-    <div class="card">
-      <h3 class="title">AL-Maghrib</h3>
-      <div class="bar">
-        <div class="emptybar"></div>
-        <div class="filledbar"></div>
-      </div>
-      <div class="circle">
-        <svg width="120" height="120">
-          <circle class="stroke" cx="60" cy="60" r="50"/>
-        </svg>
-      </div>
-    </div>
-
-    <div class="card">
-      <h3 class="title">AL-Isha</h3>
-      <div class="bar">
-        <div class="emptybar"></div>
-        <div class="filledbar"></div>
-      </div>
-      <div class="circle">
-        <svg width="120" height="120">
-          <circle class="stroke" cx="60" cy="60" r="50"/>
-        </svg>
-      </div>
-    </div>
-  </div>
-
-  <script src="main.js"></script>
-</body>
+    <!-- the end of card section -->
+  </body>
 </html>
