@@ -25,6 +25,7 @@ updateClock();
 setInterval(updateClock, 1000);
 updateClock();
 // end of making time on
+
 // liste of city(sorted alphabatic) using api better than writing the whole country of the word
 fetch(
   "https://raw.githubusercontent.com/lukes/ISO-3166-Countries-with-Regional-Codes/master/all/all.json"
@@ -40,6 +41,14 @@ fetch(
         option.textContent = c.name;
         select.appendChild(option);
       });
+
+    // ⚡ Appel automatique de getUser pour le premier pays
+    getUser(select.value);
+
+    // Quand l’utilisateur change de pays → on recharge les horaires
+    select.addEventListener("change", () => {
+      getUser(select.value);
+    });
   });
 
 //end of country filling function
@@ -73,3 +82,42 @@ async function loadDate() {
 }
 loadDate();
 // end of function date full
+
+// Construire l'URL avec la date du jour********&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+// Fonction pour récupérer les horaires
+function getUser(address) {
+  const today = new Date();
+  const day = String(today.getDate()).padStart(2, "0");
+  const month = String(today.getMonth() + 1).padStart(2, "0");
+  const year = today.getFullYear();
+  const formattedDate = `${day}-${month}-${year}`;
+
+  const url = `https://api.aladhan.com/v1/timingsByAddress/${formattedDate}`;
+
+  axios
+    .get(url, {
+      params: {
+        address: address,
+        method: 3,
+        shafaq: "general",
+        tune: "5,3,5,7,9,-1,0,8,-6",
+        timezonestring: "Africa/Tunis", // ⚠️ à changer dynamiquement si besoin
+        calendarMethod: "UAQ",
+      },
+    })
+    .then((response) => {
+      console.log("Résultat API :", response.data);
+
+      // Exemple d’affichage des horaires dans la page
+      const timings = response.data.data.timings;
+      document.querySelector(".a").textContent = timings.Fajr;
+      document.querySelector(".b").textContent = timings.Dhuhr;
+      document.querySelector(".c").textContent = timings.Asr;
+      document.querySelector(".d").textContent = timings.Maghrib;
+      document.querySelector(".e").textContent = timings.Isha;
+    })
+    .catch((error) => {
+      console.error("Erreur :", error);
+    });
+}
+// End of adhan api call
