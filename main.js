@@ -121,3 +121,16 @@ function getUser(address) {
     });
 }
 // End of adhan api call
+
+//test=========================================
+axios.get(`https://api.aladhan.com/v1/timingsByAddress/${formattedDate}`, {
+  params: {
+    address: "Tunisia",
+    method: 3,          // MWL
+    shafaq: "general",  // valeur par défaut
+    timezonestring: "Africa/Tunis"
+    // tune supprimé pour tester la valeur brute
+  }
+})
+.then(res => console.log(res.data))
+.catch(err => console.error(err));
