@@ -12,14 +12,10 @@ body {
 #mainContainer {
   max-width: 1100px;
   width: 95%;
-  min-height: 95vh;
-  margin: 2em;
-
-  margin-left: 10%;
+  margin: 2em auto; /* Centré sur tous les écrans */
   border: 1px solid #333;
   box-shadow: 8px 8px 5px #444;
   padding: 20px;
-
   border-radius: 10px;
   background: linear-gradient(180deg, white, #dddddd 40%, #cccccc);
 }
@@ -35,16 +31,17 @@ body {
 }
 
 #title {
-  font-size: 3rem;
+  font-size: clamp(1.8rem, 5vw, 3rem);
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
   color: rgb(231, 186, 36);
   margin-bottom: 1rem;
+  text-align: center;
 }
 
 #timer {
   display: flex;
   font-family: monospace;
-  font-size: 2.2rem;
+  font-size: clamp(1.3rem, 4vw, 2.2rem);
   gap: 0.5rem;
 }
 
@@ -54,6 +51,7 @@ body {
   display: flex;
   height: 60px;
   margin: 15px 0;
+  flex-wrap: wrap;
 }
 
 #divCountries label {
@@ -81,15 +79,12 @@ body {
 
 .card {
   position: relative;
-  height: 230px; /* réduit */
-  width: 160px; /* réduit */
+  width: 140px;
+  height: 111px;
   background-color: #f094f0;
   border-radius: 10px;
   box-shadow: 5rem 0 -2px #ac8888;
   transition: 0.4s ease-out;
-
-  width: 140px;
-  height: 111px;
 }
 
 .card:hover {
@@ -156,46 +151,7 @@ svg {
   stroke-dashoffset: 100;
 }
 
-/* ===== RESPONSIVE ===== */
-
-/* Tablette */
-@media (max-width: 992px) {
-  #title {
-    font-size: 2.2rem;
-  }
-
-  #timer {
-    font-size: 1.8rem;
-  }
-
-  .card {
-    width: 150px;
-    height: 210px;
-  }
-}
-
-/* Mobile */
-@media (max-width: 576px) {
-  #title {
-    font-size: 1.8rem;
-    text-align: center;
-  }
-
-  #timer {
-    font-size: 1.3rem;
-  }
-
-  #cards-container {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .card {
-    width: 85%;
-    max-width: 250px;
-    height: auto;
-  }
-}
+/* ===== DATE BOX ===== */
 #dateBox {
   background: rgb(98, 201, 29);
   padding: 20px 30px;
@@ -203,4 +159,56 @@ svg {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   font-size: 1.2rem;
   text-align: center;
+  margin-bottom: 20px;
+}
+
+/* ===== RESPONSIVE ===== */
+
+/* Tablette */
+@media (max-width: 992px) {
+  #title {
+    font-size: 2.2rem;
+    text-align: center;
+  }
+  #timer {
+    font-size: 1.8rem;
+  }
+  .card {
+    width: 45%;
+    height: auto;
+    margin-bottom: 15px;
+  }
+  #cards-container {
+    gap: 10px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 576px) {
+  #title {
+    font-size: 1.6rem;
+    text-align: center;
+  }
+  #timer {
+    font-size: 1.3rem;
+  }
+  #cards-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+  .card {
+    width: 90%;
+    max-width: 250px;
+    height: auto;
+    margin-bottom: 15px;
+  }
+  #divCountries {
+    flex-direction: column;
+    height: auto;
+  }
+  #countries {
+    margin-left: 0;
+    margin-top: 5px;
+  }
 }
