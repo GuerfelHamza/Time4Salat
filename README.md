@@ -2,6 +2,10 @@
 
 Time4Salat
 
+## Demo
+
+Check out the live version of Time4Salat (https://guerfelhamza.github.io/Time4Salat/).
+
 ## Description
 
 Time4Salat is a web application that displays:
